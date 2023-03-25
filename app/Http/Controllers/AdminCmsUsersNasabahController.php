@@ -245,10 +245,7 @@ class AdminCmsUsersNasabahController extends \crocodicstudio\crudbooster\control
 	    */
 	public function hook_query_index(&$query)
 	{
-		$user = CRUDBooster::myId();
-		if ($user != 1) {
-			$query->where('id_cms_privileges', 3);
-		}
+		$query->where('id_cms_privileges', 3);
 	}
 
 	/*

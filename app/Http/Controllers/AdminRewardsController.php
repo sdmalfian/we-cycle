@@ -31,15 +31,17 @@
 			# START COLUMNS DO NOT REMOVE THIS LINE
 			$this->col = [];
 			$this->col[] = ["label"=>"Nama Reward","name"=>"name"];
-			$this->col[] = ["label"=>"Harga(poin)","name"=>"price"];
-			$this->col[] = ["label"=>"Gambar","name"=>"image","image"=>true];
+			$this->col[] = ["label"=>"Harga(Poin)","name"=>"price"];
+			$this->col[] = ["label"=>"Foto","name"=>"image","image"=>true];
+			$this->col[] = ["label"=>"Jumlah Stok","name"=>"stock"];
 			# END COLUMNS DO NOT REMOVE THIS LINE
 
 			# START FORM DO NOT REMOVE THIS LINE
 			$this->form = [];
 			$this->form[] = ['label'=>'Nama Reward','name'=>'name','type'=>'text','validation'=>'required|string|min:3|max:70','width'=>'col-sm-10','placeholder'=>'You can only enter the letter only'];
-			$this->form[] = ['label'=>'Harga(poin)','name'=>'price','type'=>'number','validation'=>'required|integer|min:0','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Gambar','name'=>'image','type'=>'upload','validation'=>'required|image|max:3000','width'=>'col-sm-10','help'=>'File types support : JPG, JPEG, PNG, GIF, BMP'];
+			$this->form[] = ['label'=>'Harga(Poin)','name'=>'price','type'=>'number','validation'=>'required|integer|min:0','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Image','name'=>'image','type'=>'upload','validation'=>'required|image|max:3000','width'=>'col-sm-10','help'=>'File types support : JPG, JPEG, PNG, GIF, BMP'];
+			$this->form[] = ['label'=>'Jumlah Stok','name'=>'stock','type'=>'number','validation'=>'required|integer|min:0','width'=>'col-sm-10'];
 			# END FORM DO NOT REMOVE THIS LINE
 
 			# OLD START FORM
@@ -47,6 +49,7 @@
 			//$this->form[] = ["label"=>"Name","name"=>"name","type"=>"text","required"=>TRUE,"validation"=>"required|string|min:3|max:70","placeholder"=>"You can only enter the letter only"];
 			//$this->form[] = ["label"=>"Price","name"=>"price","type"=>"number","required"=>TRUE,"validation"=>"required|integer|min:0"];
 			//$this->form[] = ["label"=>"Image","name"=>"image","type"=>"upload","required"=>TRUE,"validation"=>"required|image|max:3000","help"=>"File types support : JPG, JPEG, PNG, GIF, BMP"];
+			//$this->form[] = ["label"=>"Stock","name"=>"stock","type"=>"number","required"=>TRUE,"validation"=>"required|integer|min:0"];
 			# OLD END FORM
 
 			/* 

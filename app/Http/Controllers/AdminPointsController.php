@@ -30,7 +30,7 @@
 
 			# START COLUMNS DO NOT REMOVE THIS LINE
 			$this->col = [];
-			$this->col[] = ["label"=>"Nasabah Id","name"=>"nasabah_id","join"=>"cms_users,id"];
+			$this->col[] = ["label"=>"Nama Nasabah","name"=>"nasabah_id","join"=>"cms_users,name"];
 			$this->col[] = ["label"=>"Total Points","name"=>"total_points"];
 			# END COLUMNS DO NOT REMOVE THIS LINE
 

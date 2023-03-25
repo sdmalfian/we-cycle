@@ -18,6 +18,7 @@ class CreateRewardsTable extends Migration
             $table->string('name');
             $table->integer('price');
             $table->string('image');
+            $table->integer('stock');
             $table->timestamps();
         });
     }
