@@ -2,19 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Point;
+use App\Models\Reward;
+use App\Models\User;
 use Session;
 use Request;
 use DB;
 use CRUDBooster;
 
-class AdminRewardsController extends \crocodicstudio\crudbooster\controllers\CBController
+class AdminTukarPoinController extends \crocodicstudio\crudbooster\controllers\CBController
 {
 
 	public function cbInit()
 	{
 
 		# START CONFIGURATION DO NOT REMOVE THIS LINE
-		$this->title_field = "name";
+		$this->title_field = "id";
 		$this->limit = "20";
 		$this->orderby = "updated_at,desc";
 		$this->global_privilege = false;
@@ -29,31 +32,34 @@ class AdminRewardsController extends \crocodicstudio\crudbooster\controllers\CBC
 		$this->button_filter = true;
 		$this->button_import = false;
 		$this->button_export = true;
-		$this->table = "rewards";
+		$this->table = "tukar_poin";
 		# END CONFIGURATION DO NOT REMOVE THIS LINE
 
 		# START COLUMNS DO NOT REMOVE THIS LINE
 		$this->col = [];
-		$this->col[] = ["label" => "Nama Reward", "name" => "name"];
-		$this->col[] = ["label" => "Harga(Poin)", "name" => "price"];
-		$this->col[] = ["label" => "Foto", "name" => "image", "image" => true];
-		$this->col[] = ["label" => "Jumlah Stok", "name" => "stock"];
+		$this->col[] = ["label" => "Nama Nasabah", "name" => "nasabah_id", "join" => "cms_users,name"];
+		$this->col[] = ["label" => "Nama Admin", "name" => "admin_id", "join" => "cms_users,name"];
+		$this->col[] = ["label" => "Reward", "name" => "reward_id", "join" => "rewards,name"];
+		$this->col[] = ["label" => "Jumlah", "name" => "quantity"];
+		$this->col[] = ["label" => "Point Terpakai", "name" => "points_spent"];
 		# END COLUMNS DO NOT REMOVE THIS LINE
 
 		# START FORM DO NOT REMOVE THIS LINE
 		$this->form = [];
-		$this->form[] = ['label' => 'Nama Reward', 'name' => 'name', 'type' => 'text', 'validation' => 'required|string|min:3|max:70', 'width' => 'col-sm-10', 'placeholder' => 'You can only enter the letter only'];
-		$this->form[] = ['label' => 'Harga(Poin)', 'name' => 'price', 'type' => 'number', 'validation' => 'required|integer|min:0', 'width' => 'col-sm-10', 'disabled' => 'true'];
-		$this->form[] = ['label' => 'Image', 'name' => 'image', 'type' => 'upload', 'validation' => 'required|image|max:3000', 'width' => 'col-sm-10', 'help' => 'File types support : JPG, JPEG, PNG, GIF, BMP'];
-		$this->form[] = ['label' => 'Jumlah Stok', 'name' => 'stock', 'type' => 'number', 'validation' => 'required|integer|min:0', 'width' => 'col-sm-10'];
+		$this->form[] = ['label' => 'Nama Nasabah', 'name' => 'nasabah_id', 'type' => 'select2', 'validation' => 'required|integer|min:0', 'width' => 'col-sm-10', 'datatable' => 'cms_users,name', 'datatable_where' => 'id_cms_privileges=3'];
+		$this->form[] = ['label' => 'Nama Admin', 'name' => 'admin_id', 'type' => 'select2', 'validation' => 'required|integer|min:0', 'width' => 'col-sm-10', 'datatable' => 'cms_users,name', 'datatable_where' => 'id_cms_privileges=2'];
+		$this->form[] = ['label' => 'Reward', 'name' => 'reward_id', 'type' => 'select2', 'validation' => 'required|min:1|max:255', 'width' => 'col-sm-10', 'datatable' => 'rewards,name', 'datatable_where' => 'stock>0'];
+		$this->form[] = ['label' => 'Jumlah', 'name' => 'quantity', 'type' => 'number', 'validation' => 'required|integer|min:0', 'width' => 'col-sm-10'];
+		$this->form[] = ['label' => 'Poin Terpakai', 'name' => 'points_spent', 'type' => 'number', 'validation' => 'required|integer|min:0', 'width' => 'col-sm-10'];
 		# END FORM DO NOT REMOVE THIS LINE
 
 		# OLD START FORM
 		//$this->form = [];
-		//$this->form[] = ["label"=>"Name","name"=>"name","type"=>"text","required"=>TRUE,"validation"=>"required|string|min:3|max:70","placeholder"=>"You can only enter the letter only"];
-		//$this->form[] = ["label"=>"Price","name"=>"price","type"=>"number","required"=>TRUE,"validation"=>"required|integer|min:0"];
-		//$this->form[] = ["label"=>"Image","name"=>"image","type"=>"upload","required"=>TRUE,"validation"=>"required|image|max:3000","help"=>"File types support : JPG, JPEG, PNG, GIF, BMP"];
-		//$this->form[] = ["label"=>"Stock","name"=>"stock","type"=>"number","required"=>TRUE,"validation"=>"required|integer|min:0"];
+		//$this->form[] = ['label'=>'Nama Nasabah','name'=>'nasabah_id','type'=>'select2','validation'=>'required|integer|min:0','width'=>'col-sm-10','datatable'=>'cms_users,name','datatable_where'=>'id_cms_privileges=3'];
+		//$this->form[] = ['label'=>'Nama Admin','name'=>'admin_id','type'=>'select2','validation'=>'required|integer|min:0','width'=>'col-sm-10','datatable'=>'cms_users,name','datatable_where'=>'id_cms_privileges=2'];
+		//$this->form[] = ['label'=>'Reward','name'=>'reward_id','type'=>'select2','validation'=>'required|min:1|max:255','width'=>'col-sm-10','datatable'=>'rewards,name','datatable_where'=>'stock>0'];
+		//$this->form[] = ['label'=>'Jumlah','name'=>'quantity','type'=>'number','validation'=>'required|integer|min:0','width'=>'col-sm-10'];
+		//$this->form[] = ['label'=>'Poin Terpakai','name'=>'points_spent','type'=>'number','validation'=>'required|integer|min:0','width'=>'col-sm-10'];
 		# OLD END FORM
 
 		/* 
@@ -240,8 +246,7 @@ class AdminRewardsController extends \crocodicstudio\crudbooster\controllers\CBC
 	    */
 	public function hook_query_index(&$query)
 	{
-		//Your code here
-
+		//
 	}
 
 	/*
@@ -264,8 +269,7 @@ class AdminRewardsController extends \crocodicstudio\crudbooster\controllers\CBC
 	    */
 	public function hook_before_add(&$postdata)
 	{
-		//Your code here
-
+		//
 	}
 
 	/* 
@@ -277,8 +281,17 @@ class AdminRewardsController extends \crocodicstudio\crudbooster\controllers\CBC
 	    */
 	public function hook_after_add($id)
 	{
-		//Your code here
-
+		$user = User::where('id', $_REQUEST['nasabah_id'])->first();
+		$reward = Reward::where('id', $_REQUEST['reward_id'])->first();
+		$poin = Point::where('nasabah_id', $_REQUEST['nasabah_id'])->first();
+		// dd($user, $reward, $poin, $reward_stock);
+		$reward->update(
+			['stock' => $reward['stock'] - $_REQUEST['quantity']]
+		);
+		$poin->update(
+			['total_points' => $poin['total_points'] - $reward['price']]
+		);
+		dd($reward, $poin);
 	}
 
 	/* 

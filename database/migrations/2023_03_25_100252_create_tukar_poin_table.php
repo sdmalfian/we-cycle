@@ -13,7 +13,7 @@ class CreateTukarPoinTable extends Migration
      */
     public function up()
     {
-        Schema::create('points', function (Blueprint $table) {
+        Schema::create('tukar_poin', function (Blueprint $table) {
             $table->id();
             $table->integer('nasabah_id')->unsigned()->index()->nullable();
             $table->foreign('nasabah_id')->references('id')->on('cms_users')
@@ -21,7 +21,7 @@ class CreateTukarPoinTable extends Migration
             $table->integer('admin_id')->unsigned()->index()->nullable();
             $table->foreign('admin_id')->references('id')->on('cms_users')
                 ->onDelete('cascade');
-            $table->integer('reward_id')->unsigned()->index()->nullable();
+            $table->bigInteger('reward_id')->unsigned()->index()->nullable();
             $table->foreign('reward_id')->references('id')->on('rewards')
                 ->onDelete('cascade');
             $table->integer('quantity');
