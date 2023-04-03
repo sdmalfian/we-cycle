@@ -11,6 +11,10 @@ body {
     background-color: #f7f7f7;
 }
 
+.bg-green-main {
+    background-color: var(--primary-green);
+}
+
 .max-w-screen-sm {
     max-width: 428px !important;
 }
@@ -49,8 +53,20 @@ body {
     height: 60px;
 }
 
+.header-user {
+    height: 256px;
+    max-width: 428px;
+    margin: 0px auto;
+    -webkit-box-pack: justify;
+    width: 100%;
+}
+
 .gradient-brand {
     background: linear-gradient(89.8deg, #00F260 -18.28%, #0575E6 113.98%);
+}
+
+.gradient-top-bottom {
+    background: linear-gradient(180deg, #00F260 -39%, #0575E6 141%);
 }
 
 #home-page {
@@ -83,7 +99,7 @@ body {
     box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.1);
 }
 
-.card-text {
+.font-sm {
     font-size: 14px !important;
 }
 
@@ -95,4 +111,20 @@ body {
     border-radius: 30px;
     margin: 0 1em;
     background-color: #0C0C20;
+}
+
+/* DASHBOARD PAGE */
+#dashboard-page {
+    box-sizing: border-box;
+    position: relative;
+    margin: 0px auto;
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    min-height: calc(100vh - 256px);
+}
+
+.dashboard-header {
+    margin: 0 auto;
+    max-width: 428px;
+    width: 100%;
 }
