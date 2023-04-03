@@ -291,7 +291,6 @@ class AdminTukarPoinController extends \crocodicstudio\crudbooster\controllers\C
 		$poin->update(
 			['total_points' => $poin['total_points'] - $reward['price']]
 		);
-		dd($reward, $poin);
 	}
 
 	/* 
