@@ -12,7 +12,7 @@ body {
 }
 
 .max-w-screen-sm {
-    max-width: 480px !important;
+    max-width: 428px !important;
 }
 
 .min-h-full {
@@ -32,13 +32,13 @@ body {
 .header-container {
     position: fixed;
     margin: 0 auto;
-    max-width: 480px;
+    max-width: 428px;
     width: 100%;
     z-index: 11;
 }
 
 .header-wrapper {
-    max-width: 480px;
+    max-width: 428px;
     display: flex;
     margin: 0px auto;
     -webkit-box-pack: justify;
@@ -70,6 +70,29 @@ body {
     background-blend-mode: multiply;
 }
 
+.hero-text {
+    text-align: left;
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    color: white;
+    font-size: 14px;
+  }
+
 .landing-card-shadow {
     box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.1);
+}
+
+.card-text {
+    font-size: 14px !important;
+}
+
+.landing-footer {
+    background-color: #D9D9D9;
+}
+
+.btn-circle {
+    border-radius: 30px;
+    margin: 0 1em;
+    background-color: #0C0C20;
 }
