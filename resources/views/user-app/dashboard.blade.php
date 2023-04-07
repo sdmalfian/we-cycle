@@ -37,7 +37,7 @@
         </div>
     </div>
 </header>
-<main id="dashboard-page">
+<main id="dashboard-page" class="main-container">
     <div class="container pt-4 px-5">
         <div class="card rounded-4 mb-1 landing-card-shadow border-light" style="background-color: #0575E6 ">
             <div class="row g-0">

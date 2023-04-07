@@ -30,5 +30,29 @@ Route::get('/dashboard', function () {
 });
 
 Route::get('/tukar-poin', function () {
-    return view('user-app/tukar-poin/tukar-poin');
+    return view('user-app/tukar-poin/tukar-poin-page');
+});
+
+Route::get('/tukar-poin/reward', function () {
+    return view('user-app/tukar-poin/reward');
+});
+
+Route::get('/kategori-sampah', function () {
+    return view('user-app/sampah');
+});
+
+Route::get('/history/transaction', function () {
+    return view('user-app/riwayat-transaksi');
+});
+
+Route::get('/history/points', function () {
+    return view('user-app/riwayat-poin');
+});
+
+Route::get('/history/tukar-poin', function () {
+    return view('user-app/riwayat-pesanan');
+});
+
+Route::get('/transactions/detail', function () {
+    return view('user-app/detail-transaksi');
 });

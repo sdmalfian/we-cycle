@@ -1,4 +1,5 @@
 @extends('layout.header-tukar-poin')
+@section('title', 'Tukar Poin | We-Cycle')
 
 @section('tukar-point-content')
 <div class="container">

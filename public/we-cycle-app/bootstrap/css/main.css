@@ -15,6 +15,10 @@ body {
     background-color: var(--primary-green);
 }
 
+.text-main {
+    color: var(--primary-green);
+}
+
 .max-w-screen-sm {
     max-width: 428px !important;
 }
@@ -74,11 +78,6 @@ body {
 }
 
 #home-page {
-    box-sizing: border-box;
-    position: relative;
-    margin: 0px auto;
-    background-color: rgb(255, 255, 255);
-    width: 100%;
     min-height: calc(100vh - 60px);
 }
 
@@ -116,13 +115,16 @@ body {
     background-color: #0C0C20;
 }
 
-/* DASHBOARD PAGE */
-#dashboard-page {
+.main-container {
     box-sizing: border-box;
     position: relative;
     margin: 0px auto;
     background-color: rgb(255, 255, 255);
     width: 100%;
+}
+
+/* DASHBOARD PAGE */
+#dashboard-page {
     min-height: calc(100vh - 256px);
 }
 
@@ -135,17 +137,11 @@ body {
 /* TUKAR POIN PAGE */
 #tukar-poin-page {
     max-width: 428px;
-    box-sizing: border-box;
-    position: relative;
-    margin: 0px auto;
-    background-color: rgb(255, 255, 255);
-    width: 100%;
     min-height: calc(100vh - 96px);
 }
 
 .card-img-top {
     width: 100%;
-    height: 6vw;
     object-fit: cover;
 }
 
