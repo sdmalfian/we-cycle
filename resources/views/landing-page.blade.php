@@ -10,7 +10,7 @@
       </div>
    </div>
 </header>
-<main id="home-page" class="mb-5">
+<main id="home-page">
    <!-- Hero -->
    <section class="hero text-center bg-image">
       <div class="d-flex justify-content-center align-items-center h-100">

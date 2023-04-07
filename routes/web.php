@@ -28,3 +28,7 @@ Route::get('/register', function () {
 Route::get('/dashboard', function () {
     return view('user-app/dashboard');
 });
+
+Route::get('/tukar-poin', function () {
+    return view('user-app/tukar-poin/tukar-poin');
+});

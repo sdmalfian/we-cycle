@@ -154,6 +154,7 @@
             </div>
         </div>
     </section>
+    {{-- NAVIGATION MENU --}}
     <div class="navigation-menu">
         <div class="container d-flex justify-content-evenly">
             <div>
