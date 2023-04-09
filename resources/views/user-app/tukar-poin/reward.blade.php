@@ -7,7 +7,6 @@
 <div class="container-fluid mt-4 px-0">
     <img class="w-100 rounded-3 h-auto" src="{{ asset('images/kerajinan.jpg') }}" alt="reward">
 </div>
-
 <div class="container mt-4 pb-5 mb-5 ">
     <div class="row">
         <div class="col m-0 d-flex justify-content-between">

@@ -17,42 +17,31 @@
 </header>
 <main style="min-height: calc(100vh - 150px);" class="main-container">
     <div class="container pt-4">
-        <div class="row mx-1 mt-3">
+        <div class="row mx-auto mt-3">
             <h5 class="fw-bold mb-3">
                 SAMPAH PLASTIK
             </h5>
-            <div class="col-6 m-0">
+            @foreach ($data as $sampah)
+            <div class="col-6 mb-3">
                 <div class="card border border-primary">
-                    <img src="{{ asset('images/kaos.png') }}" class="card-img-top min-w-100" alt="...">
+                    <img style="height: 110px;" src="{{ $sampah->image }}" class="card-img-top min-w-100" alt="...">
                     <div class="card-body text-center">
                         <h6 class="card-title my-0 fw-bold">
-                            500 Poin
+                            {{ $sampah->price_per_kg }}
                         </h6>
                         <p class="card-text font-sm mt-0">
-                            Lorem ipsum dolor sit amet.
+                            {{ $sampah->name }}
                         </p>
                     </div>
                 </div>
             </div>
-            <div class="col-6 m-0">
-                <div class="card border border-primary">
-                    <img src="{{ asset('images/kaos.png') }}" class="card-img-top min-w-100" alt="...">
-                    <div class="card-body text-center">
-                        <h6 class="card-title my-0 fw-bold">
-                            500 Poin
-                        </h6>
-                        <p class="card-text font-sm mt-0">
-                            Lorem ipsum dolor sit amet.
-                        </p>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
         <div class="row mx-1 mt-3">
             <h5 class="fw-bold mb-3">
                 SAMPAH PLASTIK
             </h5>
-            <div class="col-6 m-0">
+            {{-- <div class="col-6 m-0">
                 <div class="card border border-primary">
                     <img src="{{ asset('images/kaos.png') }}" class="card-img-top min-w-100" alt="...">
                     <div class="card-body text-center">
@@ -64,38 +53,7 @@
                         </p>
                     </div>
                 </div>
-            </div>
-            <div class="col-6 m-0">
-                <div class="card border border-primary">
-                    <img src="{{ asset('images/kaos.png') }}" class="card-img-top min-w-100" alt="...">
-                    <div class="card-body text-center">
-                        <h6 class="card-title my-0 fw-bold">
-                            500 Poin
-                        </h6>
-                        <p class="card-text font-sm mt-0">
-                            Lorem ipsum dolor sit amet.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row mx-1 mt-3">
-            <h5 class="fw-bold mb-3">
-                SAMPAH PLASTIK
-            </h5>
-            <div class="col-6 m-0">
-                <div class="card border border-primary">
-                    <img src="{{ asset('images/kaos.png') }}" class="card-img-top min-w-100" alt="...">
-                    <div class="card-body text-center">
-                        <h6 class="card-title my-0 fw-bold">
-                            500 Poin
-                        </h6>
-                        <p class="card-text font-sm mt-0">
-                            Lorem ipsum dolor sit amet.
-                        </p>
-                    </div>
-                </div>
-            </div>
+            </div> --}}
             <div class="col-6 m-0">
                 <div class="card border border-primary">
                     <img src="{{ asset('images/kaos.png') }}" class="card-img-top min-w-100" alt="...">

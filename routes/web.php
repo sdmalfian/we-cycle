@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserApp\RewardController;
+use App\Http\Controllers\UserApp\SampahController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +18,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('landing-page');
 });
+
+Route::get('/kategori-sampah', [SampahController::class, 'index'])->name('index');
+Route::get('/rewards', [RewardController::class, 'index'])->name('index');
 
 Route::get('/login', function () {
     return view('user-app/login');
@@ -37,9 +42,7 @@ Route::get('/tukar-poin', function () {
     return view('user-app/tukar-poin/tukar-poin-page');
 });
 
-Route::get('/tukar-poin/reward', function () {
-    return view('user-app/tukar-poin/reward');
-});
+
 
 Route::get('/tukar-poin/reward/konfirmasi', function () {
     return view('user-app/tukar-poin/konfirmasi-tukar-poin');
@@ -49,9 +52,7 @@ Route::get('/tukar-poin/reward/success', function () {
     return view('user-app/tukar-poin/success');
 });
 
-Route::get('/kategori-sampah', function () {
-    return view('user-app/sampah');
-});
+
 
 Route::get('/history/transaction', function () {
     return view('user-app/riwayat-transaksi');
