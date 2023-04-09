@@ -29,12 +29,24 @@ Route::get('/dashboard', function () {
     return view('user-app/dashboard');
 });
 
+Route::get('/profile', function () {
+    return view('user-app/profile');
+});
+
 Route::get('/tukar-poin', function () {
     return view('user-app/tukar-poin/tukar-poin-page');
 });
 
 Route::get('/tukar-poin/reward', function () {
     return view('user-app/tukar-poin/reward');
+});
+
+Route::get('/tukar-poin/reward/konfirmasi', function () {
+    return view('user-app/tukar-poin/konfirmasi-tukar-poin');
+});
+
+Route::get('/tukar-poin/reward/success', function () {
+    return view('user-app/tukar-poin/success');
 });
 
 Route::get('/kategori-sampah', function () {

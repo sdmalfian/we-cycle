@@ -33,9 +33,6 @@
                 <p class="m-0" style="font-size: 0.7rem">Berlaku Hingga</p>
                 <p class="m-0" style="font-size: 0.7rem">31-12-2023</p>
             </div>
-            <div class="col-3 d-flex align-items-center">
-                <img class="m-0 pb-1" src="{{ asset('images/icons/hand-coin.png') }}" alt="coin" srcset="">
-            </div>
         </div>
     </div>
     @yield('tukar-point-content')

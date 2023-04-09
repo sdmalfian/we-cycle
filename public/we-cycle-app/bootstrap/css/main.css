@@ -151,3 +151,17 @@ body {
     text-overflow: ellipsis;
     white-space: nowrap;
 }
+
+#profile-header {
+    position: relative;
+    height: 200px;
+    top: -90px;
+    background: linear-gradient(180deg, #00F260 -4.03%, #0575E6 100%);
+    border-radius: 180px;
+    z-index: 10;
+    margin-bottom: -160px;
+}
+
+.bg-profile-detail {
+    background-color: #6DA7BE;
+}

@@ -1,81 +1,48 @@
 @extends('layout.header-transaksi')
-@section('title', 'Detail Transaksi')
+@section('title', 'Konfirmasi Tukar Poin | We-Cycle')
 
 @section('transaction-content')
-@section('transaction-title', 'DETAIL TRANSAKSI')
+@section('transaction-title', 'KONFIRMASI')
 <main class="main-container" style="min-height: calc(100vh - 64px);">
     <div class="pt-3 mx-3">
-        <p class="btn btn-outline-primary rounded-pill text-dark">
-            #ID 991233
-        </p>
-        <section>
+        <h5 class="fw-bold">
+            Detail Transaksi
+        </h5>
+        <section class="pt-3">
             <div class="row d-flex align-items-center">
-                <h6 class="fw-bold text-muted">
-                    Sampah Ditukarkan Oleh
-                </h6>
                 <div class="col">
                     <p class="mb-0 fw-bold">
-                        Dwi Oktaviani Arifin
+                        Nama Pengguna
                     </p>
                 </div>
                 <div class="col text-end">
-                    <p class="mb-0 fw-bold">
-                        11.33 <br>
-                        03 Maret 2023
+                    <p class="mb-0">
+                        Dwi Oktaviani Arifin
                     </p>
                 </div>
             </div>
             <div class="row pt-2 d-flex align-items-center">
-                <h6 class="fw-bold text-muted">
-                    Sampah Diterima oleh
-                </h6>
                 <div class="col">
                     <p class="mb-0 fw-bold">
-                        Admin Dimas
+                        Waktu Penukaran
                     </p>
                 </div>
                 <div class="col text-end">
-                    <p class="mb-0 fw-bold">
+                    <p class="mb-0">
                         12.00 pm <br>
                         03 Maret 2023
                     </p>
                 </div>
             </div>
-            <hr>
-        </section>
-        <section>
-            <h6 class="fw-bold text-muted">
-                Jenis Sampah
-            </h6>
-            <div class="row pt-1">
+            <div class="row pt-2 d-flex align-items-center">
                 <div class="col">
                     <p class="mb-0 fw-bold">
-                        Sampah Plastik
-                    </p>
-                    <p class="mb-0">
-                        Plastik PET
+                        Produk
                     </p>
                 </div>
                 <div class="col text-end">
-                    <p class="mb-0 fw-bold">
-                        1kg <br>
-                        Rp. 1000
-                    </p>
-                </div>
-            </div>
-            <div class="row pt-1">
-                <div class="col">
-                    <p class="mb-0 fw-bold">
-                        Sampah Kaca
-                    </p>
                     <p class="mb-0">
-                        Kaca Beling
-                    </p>
-                </div>
-                <div class="col text-end">
-                    <p class="mb-0 fw-bold">
-                        1kg <br>
-                        Rp. 1999
+                        Pot Gemoy
                     </p>
                 </div>
             </div>
@@ -85,28 +52,50 @@
             <div class="row">
                 <div class="col">
                     <p class="mb-0 fw-bold">
-                        Total Pendapatan
+                        Total
                     </p>
                 </div>
                 <div class="col text-end">
                     <p class="mb-0 fw-bold">
-                        Rp. 3000
+                        500 Poin
                     </p>
                 </div>
             </div>
+            <h5 class="fw-bold pt-3 pb-1">
+                Pembayaran
+            </h5>
             <div class="row">
                 <div class="col">
+
                     <p class="mb-0 fw-bold">
-                        Jumlah Poin Didapat
+                        <i class="bi bi-cash-coin"></i>
+                        Poin Saya
                     </p>
                 </div>
                 <div class="col text-end">
                     <p class="mb-0 fw-bold text-secondary">
-                        500pts
+                        900 Poin
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p class="mb-0 fw-bold">
+                        Sisa Poin
+                    </p>
+                </div>
+                <div class="col text-end">
+                    <p class="mb-0 fw-bold text-secondary">
+                        400 Poin
                     </p>
                 </div>
             </div>
         </section>
+        <div class="row mt-5 mx-4">
+            <a class="btn btn-primary rounded-pill fw-bold my-2 px-4 py-2" href="#">
+                Konfirmasi <i class="bi bi-chevron-right"></i>
+            </a>
+        </div>
     </div>
 </main>
 @endsection

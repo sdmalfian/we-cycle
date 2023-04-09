@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col py-3 d-flex align-items-center text-start text-dark">
                 <a href="{{ url('dashboard') }}">
-                    <i class="bi bi-arrow-left me-3"></i>
+                    <i style="font-size: 1.3rem; color: black;" class="bi bi-arrow-left me-3"></i>
                 </a>
                 <h6 class="fw-bold m-0" style="letter-spacing: 1px;">
                     @yield('transaction-title')
