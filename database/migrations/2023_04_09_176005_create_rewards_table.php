@@ -17,7 +17,7 @@ class CreateRewardsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('category');
-            $table->string('description');
+            $table->text('description');
             $table->integer('price');
             $table->string('image');
             $table->integer('stock');
