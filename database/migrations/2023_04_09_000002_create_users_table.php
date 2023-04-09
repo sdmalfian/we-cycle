@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSampahTable extends Migration
+class CreateUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,16 @@ class CreateSampahTable extends Migration
      */
     public function up()
     {
-        Schema::create('sampah', function (Blueprint $table) {
+        Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->float('price_per_kg');
-            $table->string('image');
+            $table->string('email')->unique();
+            $table->string('password');
+            $table->string('picture');
+            $table->string('address');
+            $table->string('phone_number');
+            $table->timestamp('email_verified_at')->nullable();
+            $table->rememberToken();
             $table->timestamps();
         });
     }
@@ -29,6 +34,6 @@ class CreateSampahTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sampah');
+        Schema::dropIfExists('users');
     }
 }

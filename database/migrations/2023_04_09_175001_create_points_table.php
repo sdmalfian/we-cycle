@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRewardsTable extends Migration
+class CreatePointsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateRewardsTable extends Migration
      */
     public function up()
     {
-        Schema::create('rewards', function (Blueprint $table) {
+        Schema::create('points', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->integer('price');
-            $table->string('image');
-            $table->integer('stock');
+            $table->bigInteger('user_id')->unsigned()->index()->nullable();
+            $table->foreign('user_id')->references('id')->on('users')
+                ->onDelete('cascade');
+            $table->integer('total_points');
             $table->timestamps();
         });
     }

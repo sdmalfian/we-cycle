@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTukarPoinTable extends Migration
+class CreateTransactionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,19 +13,20 @@ class CreateTukarPoinTable extends Migration
      */
     public function up()
     {
-        Schema::create('tukar_poin', function (Blueprint $table) {
+        Schema::create('transactions', function (Blueprint $table) {
             $table->id();
-            $table->integer('nasabah_id')->unsigned()->index()->nullable();
-            $table->foreign('nasabah_id')->references('id')->on('cms_users')
+            $table->bigInteger('user_id')->unsigned()->index()->nullable();
+            $table->foreign('user_id')->references('id')->on('users')
                 ->onDelete('cascade');
             $table->integer('admin_id')->unsigned()->index()->nullable();
             $table->foreign('admin_id')->references('id')->on('cms_users')
                 ->onDelete('cascade');
-            $table->bigInteger('reward_id')->unsigned()->index()->nullable();
-            $table->foreign('reward_id')->references('id')->on('rewards')
+            $table->bigInteger('sampah_id')->unsigned()->index()->nullable();
+            $table->foreign('sampah_id')->references('id')->on('sampah')
                 ->onDelete('cascade');
-            $table->integer('quantity');
-            $table->integer('points_spent');
+            $table->float('total_weight');
+            $table->integer('total_income');
+            $table->integer('point_received');
             $table->timestamps();
         });
     }
@@ -37,6 +38,6 @@ class CreateTukarPoinTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tukar_poin');
+        Schema::dropIfExists('transactions');
     }
 }

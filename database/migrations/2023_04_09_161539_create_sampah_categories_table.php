@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePointsTable extends Migration
+class CreateSampahCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreatePointsTable extends Migration
      */
     public function up()
     {
-        Schema::create('points', function (Blueprint $table) {
+        Schema::create('sampah_categories', function (Blueprint $table) {
             $table->id();
-            $table->integer('nasabah_id')->unsigned()->index()->nullable();
-            $table->foreign('nasabah_id')->references('id')->on('cms_users')
-                ->onDelete('cascade');
-            $table->integer('total_points');
+            $table->string('name');
+            $table->string('description');
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ class CreatePointsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('points');
+        Schema::dropIfExists('sampah_categories');
     }
 }
