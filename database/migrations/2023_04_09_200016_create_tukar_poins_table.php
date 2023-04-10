@@ -26,6 +26,7 @@ class CreateTukarPoinsTable extends Migration
                 ->onDelete('cascade');
             $table->integer('quantity');
             $table->integer('total_price');
+            $table->string('status');
             $table->timestamps();
         });
     }
