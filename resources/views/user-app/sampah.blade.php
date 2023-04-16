@@ -41,19 +41,6 @@
             <h5 class="fw-bold mb-3">
                 SAMPAH PLASTIK
             </h5>
-            {{-- <div class="col-6 m-0">
-                <div class="card border border-primary">
-                    <img src="{{ asset('images/kaos.png') }}" class="card-img-top min-w-100" alt="...">
-                    <div class="card-body text-center">
-                        <h6 class="card-title my-0 fw-bold">
-                            500 Poin
-                        </h6>
-                        <p class="card-text font-sm mt-0">
-                            Lorem ipsum dolor sit amet.
-                        </p>
-                    </div>
-                </div>
-            </div> --}}
             <div class="col-6 m-0">
                 <div class="card border border-primary">
                     <img src="{{ asset('images/kaos.png') }}" class="card-img-top min-w-100" alt="...">
@@ -66,6 +53,35 @@
                         </p>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+    {{-- NAVIGATION MENU --}}
+    <div class="navigation-menu">
+        <div class="container d-flex justify-content-evenly">
+            <div>
+                <a class="btn btn-lg border-0 px-1 py-auto" href="/dashboard">
+                    <i class="bi bi-house" style="font-size: 1.5rem; color:#0575E6;"></i>
+                    <p class="text-dark fw-bold font-sm p-0 m-0">Beranda</p>
+                </a>
+            </div>
+            <div>
+                <a class="btn btn-lg border-0 px-1 py-auto" href="/kategori-sampah">
+                    <i class="bi bi-trash" style="font-size: 1.5rem; color:#0575E6;"></i>
+                    <p class="text-dark fw-bold font-sm p-0 m-0">Kategori</p>
+                </a>
+            </div>
+            <div>
+                <a class="btn btn-lg border-0 px-1 py-auto" href="/profile">
+                    <i class="bi bi-person" style="font-size: 1.5rem; color:#0575E6;"></i>
+                    <p class="text-dark fw-bold font-sm p-0 m-0">Profil</p>
+                </a>
+            </div>
+            <div>
+                <a class=" btn btn-lg border-0 px-1 py-auto" href="#!" role="button">
+                    <i class="bi bi-gear" style="font-size: 1.5rem; color:#0575E6;"></i>
+                    <p class="text-dark fw-bold font-sm p-0 m-0">Pengaturan</p>
+                </a>
             </div>
         </div>
     </div>

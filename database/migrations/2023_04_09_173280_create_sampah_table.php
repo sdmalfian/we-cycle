@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUsersTable extends Migration
+class CreateSampahTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,14 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('sampah', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('category_id')->unsigned()->index()->nullable();
+            $table->foreign('category_id')->references('id')->on('sampah_categories')
+                ->onDelete('cascade');
             $table->string('name');
-            $table->string('email')->unique();
-            $table->string('password');
-            $table->string('address');
-            $table->string('phone_number');
-            $table->string('picture')->nullable();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->rememberToken();
+            $table->string('image');
+            $table->integer('price_per_kg');
             $table->timestamps();
         });
     }
@@ -34,6 +32,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('sampah');
     }
 }

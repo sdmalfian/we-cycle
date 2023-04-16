@@ -10,6 +10,11 @@
     </title>
     <meta content="" name="keywords" />
     <meta content="" name="description" />
+    {{-- Favicon --}}
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('images/favicon/apple-touch-icon.png')}}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/favicon/favicon-32x32.png')}}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/favicon/favicon-16x16.png')}}">
+    <link rel="manifest" href="{{ asset('images/favicon//site.webmanifest') }}">
     {{-- Typography --}}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,7 +28,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
-
 <body>
     <main class="loginscreen">
         <div class="bulatgradasi">
@@ -31,40 +35,47 @@
         <div class="boxlogin">
             <img class="logodark" src="{{ asset('images/logo-dark.png') }}" alt="logodark">
             <div class="ikonkon">
-                <form style="max-width:327px;margin:auto">
+                <form action="/register" method="post" style="max-width:327px;margin:auto">
+                    @csrf
+                    @if($errors->any())
+                    {!! implode('', $errors->all('<div class="mx-1 font-sm text-danger">:message</div>')) !!}
+                    @endif
                     <div class="input-icons">
                         <i class="fa fa-user icon">
                         </i>
-                        <input class="input-field" type="text" placeholder="Username">
+                        <input class="input-field" id="username" name="username" type="text required"
+                            placeholder="Username">
                     </div>
                     <div class="input-icons">
                         <i class="fa fa-envelope icon">
                         </i>
-                        <input class="input-field" type="email" placeholder="Email">
+                        <input class="input-field" id="email" name="email" type="email" placeholder="Email" required>
                     </div>
                     <div class="input-icons">
                         <i class="fa fa-key icon">
                         </i>
-                        <input class="input-field" type="password" placeholder="Password">
+                        <input class="input-field" id="password" name="password" type="password" placeholder="Password"
+                            required>
                     </div>
                     <div class="input-icons">
                         <i class="fa fa-key icon">
                         </i>
-                        <input class="input-field" type="password" placeholder="Konfirmasi Password">
+                        <input class="input-field" id="password_confirmation" name="password_confirmation" required
+                            type="password" placeholder="Konfirmasi Password">
+                    </div>
+                    <div class="tombol">
+                        <button type="submit" class="btn1">DAFTAR</button>
                     </div>
                 </form>
             </div>
-            <div class="terms">
+            {{-- <div class="terms">
                 <input type="checkbox" id="checkbox" style="float: left; margin-top: 5px">
                 <label for="checkbox">Saya Menyetujui Kebijakan Privasi dan Ketentuan We-Cycle</label>
-            </div>
-            <div class="tombol">
-                <button type="submit" class="btn1">DAFTAR</button>
-            </div>
+            </div> --}}
         </div>
         <div class="loakun">
             <p>Sudah Punya Akun?
-                <a href="#" class="linkregis">Masuk Disini</a>
+                <a href="/login" class="linkregis">Masuk Disini</a>
             </p>
         </div>
 

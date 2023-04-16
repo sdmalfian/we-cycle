@@ -29,19 +29,36 @@
         <div class="bulatgradasi">
         </div>
         <div class="boxlogin">
+            @if(session()->has('success'))
+            <div class="alert alert-success m-2" role="alert">
+                {{ session('success') }}
+            </div>
+            @endif
+            @if(session()->has('loginError'))
+            <div class="alert alert-danger mx-2 my-1" role="alert">
+                {{ session('loginError') }}
+            </div>
+            @endif
+
             <img class="logodark" src="{{ asset('images/logo-dark.png') }}" alt="logodark">
             <div class="ikonkon">
-                <form style="max-width:327px;margin:auto">
-
+                <form action="/login" method="post" style="max-width:327px;margin:auto">
+                    @csrf
                     <div class="input-icons">
                         <i class="fa fa-user icon">
                         </i>
-                        <input class="input-field" type="text" placeholder="Email atau Username">
+                        <input class="input-field" id="email" name="email" type="email"
+                            placeholder="we_cycle@gmail.com">
                     </div>
                     <div class="input-icons">
                         <i class="fa fa-key icon">
                         </i>
-                        <input class="input-field" type="password" placeholder="Password">
+                        <input class="input-field" id="password" name="password" type="password" placeholder="Password">
+                    </div>
+                    <div class="tombol">
+                        <button type="submit" class="btn1">MASUK</button>
+                        {{-- <h6 class="ps-4">Atau</h6>
+                        <button type="submit" class="btn2">Lanjutkan dengan Google</button> --}}
                     </div>
                 </form>
             </div>
@@ -50,15 +67,10 @@
                 <label for="checkbox">Ingat saya</label>
                 <a href="#">Lupa Password?</a>
             </div>
-            <div class="tombol">
-                <button type="submit" class="btn1">MASUK</button>
-                <h6 class="ps-4">Atau</h6>
-                <button type="submit" class="btn2">Lanjutkan dengan Google</button>
-            </div>
         </div>
         <div class="loregister">
             <p>Belum Punya Akun?
-                <a href="#" class="linkregis">Daftar Disini</a>
+                <a href="/register" class="linkregis">Daftar Disini</a>
             </p>
         </div>
     </main>

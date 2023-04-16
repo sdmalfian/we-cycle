@@ -9,5 +9,5 @@ class Point extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['total_points'];
+    protected $fillable = ['user_id', 'total_points'];
 }

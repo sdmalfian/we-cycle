@@ -12,7 +12,7 @@
                     <div class="text">
                         <p style="font-weight: 600; letter-spacing: 1px;">
                             Hi,<br>
-                            Dwi Oktaviani Arifin
+                            {{ auth()->user()->username }}
                         </p>
                     </div>
                     <div class="profile">
@@ -39,7 +39,8 @@
 </header>
 <main id="dashboard-page" class="main-container">
     <div class="container pt-4 px-5">
-        <div class="card rounded-4 mb-1 landing-card-shadow border-light" style="background-color: #0575E6 ">
+        <a href="/rewards" class="card rounded-4 mb-1 landing-card-shadow border-light"
+            style="background-color: #0575E6 ">
             <div class="row g-0">
                 <div class="col-3 d-flex justify-content-center align-items-center text-center">
                     <img class="max-w-100" src="{{ asset('images/icons/gift-light.png') }}"
@@ -53,7 +54,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </a>
     </div>
     <section class="container mt-4">
         <div class="d-flex justify-content-between mx-3">
@@ -94,83 +95,25 @@
                     </div>
                 </div>
             </div>
-            <div class="card border-0 shadow mb-2">
-                <div class="card-body">
-                    <div class="row d-flex align-items-center">
-                        <div class="col-7 text-start">
-                            <p class="mb-0 fw-bold">
-                                Setoran Sampah
-                                <span class="rounded-pill text-light bg-green-main px-2 fw-bold">500</span>
-                            </p>
-                            <p class="mb-0">
-                                Total:
-                                <span class="fw-bold" style="color: #0575E6">
-                                    12 Kg
-                                </span>
-                            </p>
-                            <p class="mb-0 font-sm text-muted">
-                                03 Maret 2023
-                            </p>
-                        </div>
-                        <div class="col-5 text-end">
-                            <p class="mb-0 fw-bold">
-                                Pendapatan
-                            </p>
-                            <p class="mb-0 pe-3 text-secondary fw-bold">
-                                12000
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card border-0 shadow mb-5">
-                <div class="card-body">
-                    <div class="row d-flex align-items-center">
-                        <div class="col-7 text-start">
-                            <p class="mb-0 fw-bold">
-                                Setoran Sampah
-                                <span class="rounded-pill text-light bg-green-main px-2 fw-bold">500</span>
-                            </p>
-                            <p class="mb-0">
-                                Total:
-                                <span class="fw-bold" style="color: #0575E6">
-                                    12 Kg
-                                </span>
-                            </p>
-                            <p class="mb-0 font-sm text-muted">
-                                03 Maret 2023
-                            </p>
-                        </div>
-                        <div class="col-5 text-end">
-                            <p class="mb-0 fw-bold">
-                                Pendapatan
-                            </p>
-                            <p class="mb-0 pe-3 text-secondary fw-bold">
-                                12000
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
     {{-- NAVIGATION MENU --}}
     <div class="navigation-menu">
         <div class="container d-flex justify-content-evenly">
             <div>
-                <a class="btn btn-lg border-0 px-1 py-auto" href="#!">
+                <a class="btn btn-lg border-0 px-1 py-auto" href="/dashboard">
                     <i class="bi bi-house" style="font-size: 1.5rem; color:#0575E6;"></i>
                     <p class="text-dark fw-bold font-sm p-0 m-0">Beranda</p>
                 </a>
             </div>
             <div>
-                <a class="btn btn-lg border-0 px-1 py-auto" href="#!">
+                <a class="btn btn-lg border-0 px-1 py-auto" href="/kategori-sampah">
                     <i class="bi bi-trash" style="font-size: 1.5rem; color:#0575E6;"></i>
                     <p class="text-dark fw-bold font-sm p-0 m-0">Kategori</p>
                 </a>
             </div>
             <div>
-                <a class="btn btn-lg border-0 px-1 py-auto" href="#!">
+                <a class="btn btn-lg border-0 px-1 py-auto" href="/profile">
                     <i class="bi bi-person" style="font-size: 1.5rem; color:#0575E6;"></i>
                     <p class="text-dark fw-bold font-sm p-0 m-0">Profil</p>
                 </a>
