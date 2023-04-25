@@ -18,26 +18,36 @@ class LoginController extends Controller
     public function store(Request $request)
     {
         $credentials = $request->validate([
-            'email' => 'required|email',
-            'password' => 'required'
+            'email' => ['required', 'email'],
+            'password' => ['required']
         ]);
-        $points = Point::where('user_id', auth()->user()->id)->firstOrFail();
-        $transactions = Transaction::where('user_id', auth()->user()->id)->get()->all();
-
-
 
         if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
-            return redirect()->intended('dashboard');
-            dd($points, $transactions);
+            $user = Auth::user();
+            $point = Point::where('user_id', $user->id)->first();
+            $transactions = Transaction::where('user_id', $user->id)->latest()->limit(3)->get();
+
+            return redirect()->intended('dashboard')->with([
+                'user' => $user,
+                'point' => $point,
+                'transactions' => $transactions
+            ]);
         }
 
-        return back()->with('loginError', 'Login Failed!');
+        return back()->with('loginError', 'Invalid credentials.');
     }
 
     public function login()
     {
-        return view('user-app/dashboard');
+        $user = Auth::user();
+        $point = Point::where('user_id', $user->id)->first();
+        $transactions = Transaction::where('user_id', $user->id)->latest()->limit(3)->get();
+
+        return view('user-app/dashboard')->with([
+            'user' => $user,
+            'point' => $point,
+            'transactions' => $transactions
+        ]);
     }
 
     public function logout(Request $request)
@@ -46,5 +56,10 @@ class LoginController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
         return redirect('/');
+    }
+
+    public function profile()
+    {
+        return view('user-app/profile');
     }
 }

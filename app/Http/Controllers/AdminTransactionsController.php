@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Session;
-use Request;
 use DB;
+use Request;
+use Session;
 use CRUDBooster;
+use App\Models\Point;
 
 class AdminTransactionsController extends \crocodicstudio\crudbooster\controllers\CBController
 {
@@ -47,19 +48,19 @@ class AdminTransactionsController extends \crocodicstudio\crudbooster\controller
 		$this->form[] = ['label' => 'Nama User', 'name' => 'user_id', 'type' => 'select2', 'validation' => 'required|min:1|max:255', 'width' => 'col-sm-10', 'datatable' => 'users,username'];
 		$this->form[] = ['label' => 'Nama Admin', 'name' => 'admin_id', 'type' => 'select2', 'validation' => 'required|integer|min:0', 'width' => 'col-sm-10', 'datatable' => 'cms_users,name'];
 		$this->form[] = ['label' => 'Jenis Sampah', 'name' => 'sampah_id', 'type' => 'select2', 'validation' => 'required|min:1|max:255', 'width' => 'col-sm-10', 'datatable' => 'sampah,name', 'datatable_format' => 'name,\'. Harga per Kg =  \',price_per_kg'];
-		$this->form[] = ['label' => 'Total Berat', 'name' => 'total_weight', 'type' => 'number', 'validation' => 'required|integer|min:0', 'width' => 'col-sm-10'];
+		$this->form[] = ['label' => 'Total Berat(kg)', 'name' => 'total_weight', 'type' => 'text', 'validation' => 'required|min:0|numeric', 'width' => 'col-sm-10'];
 		$this->form[] = ['label' => 'Total Pendapatan', 'name' => 'total_income', 'type' => 'number', 'validation' => 'required|integer|min:0', 'width' => 'col-sm-10', 'readonly' => 'true'];
 		$this->form[] = ['label' => 'Poin Didapat', 'name' => 'point_received', 'type' => 'number', 'validation' => 'required|integer|min:0', 'width' => 'col-sm-10', 'readonly' => 'true'];
 		# END FORM DO NOT REMOVE THIS LINE
 
 		# OLD START FORM
 		//$this->form = [];
-		//$this->form[] = ['label' => 'Nama User', 'name' => 'user_id', 'type' => 'select2', 'validation' => 'required|min:1|max:255', 'width' => 'col-sm-10', 'datatable' => 'users,username'];
-		//$this->form[] = ['label' => 'Nama Admin', 'name' => 'admin_id', 'type' => 'select2', 'validation' => 'required|integer|min:0', 'width' => 'col-sm-10', 'datatable' => 'cms_users,name'];
-		//$this->form[] = ['label' => 'Jenis Sampah', 'name' => 'sampah_id', 'type' => 'select2', 'validation' => 'required|min:1|max:255', 'width' => 'col-sm-10', 'datatable' => 'sampah,name', 'datatable_format' => 'name,\'. Harga per Kg =  \',price_per_kg'];
-		//$this->form[] = ['label' => 'Total Berat', 'name' => 'total_weight', 'type' => 'number', 'validation' => 'required|integer|min:0', 'width' => 'col-sm-10'];
-		//$this->form[] = ['label' => 'Total Pendapatan', 'name' => 'total_income', 'type' => 'number', 'validation' => 'required|integer|min:0', 'width' => 'col-sm-10'];
-		//$this->form[] = ['label' => 'Poin Didapat', 'name' => 'point_received', 'type' => 'number', 'validation' => 'required|integer|min:0', 'width' => 'col-sm-10', 'readonly' => 'true'];
+		//$this->form[] = ['label'=>'Nama User','name'=>'user_id','type'=>'select2','validation'=>'required|min:1|max:255','width'=>'col-sm-10','datatable'=>'users,username'];
+		//$this->form[] = ['label'=>'Nama Admin','name'=>'admin_id','type'=>'select2','validation'=>'required|integer|min:0','width'=>'col-sm-10','datatable'=>'cms_users,name'];
+		//$this->form[] = ['label'=>'Jenis Sampah','name'=>'sampah_id','type'=>'select2','validation'=>'required|min:1|max:255','width'=>'col-sm-10','datatable'=>'sampah,name','datatable_format'=>'name,\'. Harga per Kg =  \',price_per_kg'];
+		//$this->form[] = ['label'=>'Total Berat','name'=>'total_weight','type'=>'number','validation'=>'required|min:0','width'=>'col-sm-10'];
+		//$this->form[] = ['label'=>'Total Pendapatan','name'=>'total_income','type'=>'number','validation'=>'required|integer|min:0','width'=>'col-sm-10','readonly'=>'true'];
+		//$this->form[] = ['label'=>'Poin Didapat','name'=>'point_received','type'=>'number','validation'=>'required|integer|min:0','width'=>'col-sm-10','readonly'=>'true'];
 		# OLD END FORM
 
 		/* 
@@ -174,9 +175,9 @@ class AdminTransactionsController extends \crocodicstudio\crudbooster\controller
 						var price = match ? parseInt(match[0]) : null;
 						
 						// fill total income and total point received automatically
-						var weight = parseInt(this.value);
+						var weight = this.value;
 						income.value = price * weight;
-						pointReceived.value = 100 * weight;
+						pointReceived.value = Math.round(weight * 100);
 					}
   				});
 			";
@@ -301,8 +302,11 @@ class AdminTransactionsController extends \crocodicstudio\crudbooster\controller
 	    */
 	public function hook_after_add($id)
 	{
-		//Your code here
-
+		$user_point = Point::where('user_id', $_REQUEST['user_id'])->first();
+		$point_received = $_REQUEST['point_received'];
+		$user_point->update(
+			['total_points' => $user_point['total_points'] + $point_received]
+		);
 	}
 
 	/* 

@@ -6,7 +6,7 @@
     {{-- MENU --}}
     <div class="row mx-3 mt-3">
         <div class="col p-0 d-flex justify-content-between">
-            <a class=" btn btn-light text-dark rounded-4 py-2 px-3 shadow fw-bold mt-1" href="#">
+            <a class=" btn btn-light text-dark rounded-4 py-2 px-3 shadow fw-bold mt-1" href="/history/points">
                 <i style="color: #0575E6" class="bi bi-file-earmark-text-fill pe-1"></i>
                 <span>Riwayat Poin</span>
             </a>
@@ -23,7 +23,8 @@
         <h5 class="fw-bold ps-0 mb-3">Hiasan</h5>
         <div class="swiper mySwiper">
             <div class="swiper-wrapper">
-                @foreach ($data as $reward)
+                @if (isset($hiasan) || !empty($hiasan))
+                @forelse ($hiasan as $reward)
                 <div class="swiper-slide me-3 w-50">
                     <div class="card">
                         <img style="height: 78px;" src="{{ $reward->image }}" class="card-img-top min-w-100"
@@ -38,7 +39,19 @@
                         </div>
                     </div>
                 </div>
-                @endforeach
+                @empty
+                <div class="card">
+                    <div class="card-body">
+                        <h6 class="card-title my-0 fw-bold">
+                            Belum Ada Data!
+                        </h6>
+                        <p class="card-text reward-name font-sm mt-0">
+                            Input data terlebih dulu!
+                        </p>
+                    </div>
+                </div>
+                @endforelse
+                @endif
             </div>
         </div>
     </div>
@@ -47,97 +60,35 @@
         <h5 class="fw-bold ps-0 mb-3">Peralatan</h5>
         <div class="swiper mySwiper">
             <div class="swiper-wrapper">
+                @if (isset($peralatan) || !empty($peralatan))
+                @forelse ($peralatan as $reward)
                 <div class="swiper-slide me-3 w-50">
                     <div class="card">
-                        <img src="{{ asset('images/kaos.png') }}" class="card-img-top min-w-100" alt="...">
+                        <img style="height: 78px;" src="{{ $reward->image }}" class="card-img-top min-w-100"
+                            alt="{{ $reward->name }}">
                         <div class="card-body">
                             <h6 class="card-title my-0 fw-bold">
-                                500 Poin
+                                {{ $reward->price }}
                             </h6>
                             <p class="card-text reward-name font-sm mt-0">
-                                Lorem ipsum dolor sit amet.
+                                {{ $reward->name }}
                             </p>
                         </div>
                     </div>
                 </div>
-                <div class="swiper-slide me-3 w-50">
-                    <div class="card">
-                        <img src="{{ asset('images/kaos.png') }}" class="card-img-top min-w-100" alt="...">
-                        <div class="card-body">
-                            <h6 class="card-title my-0 fw-bold">
-                                500 Poin
-                            </h6>
-                            <p class="card-text reward-name font-sm mt-0">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae.
-                            </p>
-                        </div>
+                @empty
+                <div class="card">
+                    <div class="card-body">
+                        <h6 class="card-title my-0 fw-bold">
+                            Belum Ada Data!
+                        </h6>
+                        <p class="card-text reward-name font-sm mt-0">
+                            Input data terlebih dulu!
+                        </p>
                     </div>
                 </div>
-                <div class="swiper-slide me-3 w-50">
-                    <div class="card">
-                        <img src="{{ asset('images/kaos.png') }}" class="card-img-top min-w-100" alt="...">
-                        <div class="card-body">
-                            <h6 class="card-title my-0 fw-bold">
-                                500 Poin
-                            </h6>
-                            <p class="card-text reward-name font-sm mt-0">
-                                Kaos
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide me-3 w-50">
-                    <div class="card">
-                        <img src="{{ asset('images/kaos.png') }}" class="card-img-top min-w-100" alt="...">
-                        <div class="card-body">
-                            <h6 class="card-title my-0 fw-bold">
-                                500 Poin
-                            </h6>
-                            <p class="card-text reward-name font-sm mt-0">
-                                Kaos
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide me-3 w-50">
-                    <div class="card">
-                        <img src="{{ asset('images/kaos.png') }}" class="card-img-top min-w-100" alt="...">
-                        <div class="card-body">
-                            <h6 class="card-title my-0 fw-bold">
-                                500 Poin
-                            </h6>
-                            <p class="card-text reward-name font-sm mt-0">
-                                Kaos
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide me-3 w-50">
-                    <div class="card">
-                        <img src="{{ asset('images/kaos.png') }}" class="card-img-top min-w-100" alt="...">
-                        <div class="card-body">
-                            <h6 class="card-title my-0 fw-bold">
-                                500 Poin
-                            </h6>
-                            <p class="card-text reward-name font-sm mt-0">
-                                Kaos
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide me-3 w-50">
-                    <div class="card">
-                        <img src="{{ asset('images/kaos.png') }}" class="card-img-top min-w-100" alt="...">
-                        <div class="card-body">
-                            <h6 class="card-title my-0 fw-bold">
-                                500 Poin
-                            </h6>
-                            <p class="card-text reward-name font-sm mt-0">
-                                Kaos
-                            </p>
-                        </div>
-                    </div>
-                </div>
+                @endforelse
+                @endif
             </div>
         </div>
     </div>
@@ -146,97 +97,35 @@
         <h5 class="fw-bold ps-0 mb-3">Perlengkapan</h5>
         <div class="swiper mySwiper">
             <div class="swiper-wrapper">
+                @if (is_array($perlengkapan) || is_object($perlengkapan))
+                @forelse ($perlengkapan as $reward)
                 <div class="swiper-slide me-3 w-50">
                     <div class="card">
-                        <img src="{{ asset('images/kaos.png') }}" class="card-img-top min-w-100" alt="...">
+                        <img style="height: 78px;" src="{{ $reward->image }}" class="card-img-top min-w-100"
+                            alt="{{ $reward->name }}">
                         <div class="card-body">
                             <h6 class="card-title my-0 fw-bold">
-                                500 Poin
+                                {{ $reward->price }}
                             </h6>
                             <p class="card-text reward-name font-sm mt-0">
-                                Lorem ipsum dolor sit amet.
+                                {{ $reward->name }}
                             </p>
                         </div>
                     </div>
                 </div>
-                <div class="swiper-slide me-3 w-50">
-                    <div class="card">
-                        <img src="{{ asset('images/kaos.png') }}" class="card-img-top min-w-100" alt="...">
-                        <div class="card-body">
-                            <h6 class="card-title my-0 fw-bold">
-                                500 Poin
-                            </h6>
-                            <p class="card-text reward-name font-sm mt-0">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae.
-                            </p>
-                        </div>
+                @empty
+                <div class="card">
+                    <div class="card-body">
+                        <h6 class="card-title my-0 fw-bold">
+                            Belum Ada Data!
+                        </h6>
+                        <p class="card-text reward-name font-sm mt-0">
+                            Input data terlebih dulu!
+                        </p>
                     </div>
                 </div>
-                <div class="swiper-slide me-3 w-50">
-                    <div class="card">
-                        <img src="{{ asset('images/kaos.png') }}" class="card-img-top min-w-100" alt="...">
-                        <div class="card-body">
-                            <h6 class="card-title my-0 fw-bold">
-                                500 Poin
-                            </h6>
-                            <p class="card-text reward-name font-sm mt-0">
-                                Kaos
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide me-3 w-50">
-                    <div class="card">
-                        <img src="{{ asset('images/kaos.png') }}" class="card-img-top min-w-100" alt="...">
-                        <div class="card-body">
-                            <h6 class="card-title my-0 fw-bold">
-                                500 Poin
-                            </h6>
-                            <p class="card-text reward-name font-sm mt-0">
-                                Kaos
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide me-3 w-50">
-                    <div class="card">
-                        <img src="{{ asset('images/kaos.png') }}" class="card-img-top min-w-100" alt="...">
-                        <div class="card-body">
-                            <h6 class="card-title my-0 fw-bold">
-                                500 Poin
-                            </h6>
-                            <p class="card-text reward-name font-sm mt-0">
-                                Kaos
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide me-3 w-50">
-                    <div class="card">
-                        <img src="{{ asset('images/kaos.png') }}" class="card-img-top min-w-100" alt="...">
-                        <div class="card-body">
-                            <h6 class="card-title my-0 fw-bold">
-                                500 Poin
-                            </h6>
-                            <p class="card-text reward-name font-sm mt-0">
-                                Kaos
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide me-3 w-50">
-                    <div class="card">
-                        <img src="{{ asset('images/kaos.png') }}" class="card-img-top min-w-100" alt="...">
-                        <div class="card-body">
-                            <h6 class="card-title my-0 fw-bold">
-                                500 Poin
-                            </h6>
-                            <p class="card-text reward-name font-sm mt-0">
-                                Kaos
-                            </p>
-                        </div>
-                    </div>
-                </div>
+                @endforelse
+                @endif
             </div>
         </div>
     </div>
@@ -244,19 +133,19 @@
 <div class="navigation-menu">
     <div class="container d-flex justify-content-evenly">
         <div>
-            <a class="btn btn-lg border-0 px-1 py-auto" href="#!">
+            <a class="btn btn-lg border-0 px-1 py-auto" href="/dashboard">
                 <i class="bi bi-house" style="font-size: 1.5rem; color:#0575E6;"></i>
                 <p class="text-dark fw-bold font-sm p-0 m-0">Beranda</p>
             </a>
         </div>
         <div>
-            <a class="btn btn-lg border-0 px-1 py-auto" href="#!">
+            <a class="btn btn-lg border-0 px-1 py-auto" href="/kategori-sampah">
                 <i class="bi bi-trash" style="font-size: 1.5rem; color:#0575E6;"></i>
                 <p class="text-dark fw-bold font-sm p-0 m-0">Kategori</p>
             </a>
         </div>
         <div>
-            <a class="btn btn-lg border-0 px-1 py-auto" href="#!">
+            <a class="btn btn-lg border-0 px-1 py-auto" href="/profile">
                 <i class="bi bi-person" style="font-size: 1.5rem; color:#0575E6;"></i>
                 <p class="text-dark fw-bold font-sm p-0 m-0">Profil</p>
             </a>

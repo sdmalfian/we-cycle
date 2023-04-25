@@ -8,11 +8,12 @@
             <div class="col py-4 d-flex align-items-center justify-content-between text-start text-light">
                 <div>
                     <p class="mb-0" style="font-weight: 500; letter-spacing: 1px;">
-                        Dwi Oktaviani Arifin
+                        {{ auth()->user()->username ?? 'Anonim'}}
                     </p>
                 </div>
                 <div class="profile">
-                    <img src="{{ asset('images/profile.png') }}" alt="profile">
+                    <img src="{{ auth()->user()->picture ?? asset('images/profile3.png') }}" alt="profile"
+                        style="width: 48px; height:48px;" class="rounded-circle">
                 </div>
             </div>
         </div>
@@ -28,7 +29,7 @@
             <div class="col border-start border-2">
                 <p class="m-0 font-sm">Poin Saat ini</p>
                 <p class="m-0 fw-bold fs-5">
-                    9999999
+                    {{ $point->total_points }}
                 </p>
                 <p class="m-0" style="font-size: 0.7rem">Berlaku Hingga</p>
                 <p class="m-0" style="font-size: 0.7rem">31-12-2023</p>
