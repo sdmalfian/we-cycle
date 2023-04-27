@@ -20,7 +20,7 @@ class CreateTukarPoinsTable extends Migration
                 ->onDelete('cascade');
             $table->integer('admin_id')->unsigned()->index()->nullable();
             $table->foreign('admin_id')->references('id')->on('cms_users')
-                ->onDelete('cascade');
+                ->onDelete('cascade')->nullable();
             $table->bigInteger('reward_id')->unsigned()->index()->nullable();
             $table->foreign('reward_id')->references('id')->on('rewards')
                 ->onDelete('cascade');

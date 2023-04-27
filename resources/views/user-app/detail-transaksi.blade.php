@@ -6,7 +6,7 @@
 <main class="main-container" style="min-height: calc(100vh - 64px);">
     <div class="pt-3 mx-3">
         <p class="btn btn-outline-primary rounded-pill text-dark">
-            #ID 991233
+            ID #{{ $transaction->id }}
         </p>
         <section>
             <div class="row d-flex align-items-center">
@@ -15,13 +15,12 @@
                 </h6>
                 <div class="col">
                     <p class="mb-0 fw-bold">
-                        Dwi Oktaviani Arifin
+                        {{ auth()->user()->username }}
                     </p>
                 </div>
                 <div class="col text-end">
                     <p class="mb-0 fw-bold">
-                        11.33 <br>
-                        03 Maret 2023
+                        {{ $transaction->created_at->format('d-m-Y') }}
                     </p>
                 </div>
             </div>
@@ -31,13 +30,12 @@
                 </h6>
                 <div class="col">
                     <p class="mb-0 fw-bold">
-                        Admin Dimas
+                        {{ $admin->name }}
                     </p>
                 </div>
                 <div class="col text-end">
                     <p class="mb-0 fw-bold">
-                        12.00 pm <br>
-                        03 Maret 2023
+                        {{ $transaction->created_at->format('d-m-Y') }}
                     </p>
                 </div>
             </div>
@@ -50,32 +48,12 @@
             <div class="row pt-1">
                 <div class="col">
                     <p class="mb-0 fw-bold">
-                        Sampah Plastik
-                    </p>
-                    <p class="mb-0">
-                        Plastik PET
+                        {{ $sampah->name }}
                     </p>
                 </div>
                 <div class="col text-end">
                     <p class="mb-0 fw-bold">
-                        1kg <br>
-                        Rp. 1000
-                    </p>
-                </div>
-            </div>
-            <div class="row pt-1">
-                <div class="col">
-                    <p class="mb-0 fw-bold">
-                        Sampah Kaca
-                    </p>
-                    <p class="mb-0">
-                        Kaca Beling
-                    </p>
-                </div>
-                <div class="col text-end">
-                    <p class="mb-0 fw-bold">
-                        1kg <br>
-                        Rp. 1999
+                        {{ $transaction->total_weight }} Kg
                     </p>
                 </div>
             </div>
@@ -90,7 +68,7 @@
                 </div>
                 <div class="col text-end">
                     <p class="mb-0 fw-bold">
-                        Rp. 3000
+                        Rp. {{ $transaction->total_income }}
                     </p>
                 </div>
             </div>
@@ -102,7 +80,7 @@
                 </div>
                 <div class="col text-end">
                     <p class="mb-0 fw-bold text-secondary">
-                        500pts
+                        {{ $transaction->point_received }} Poin
                     </p>
                 </div>
             </div>

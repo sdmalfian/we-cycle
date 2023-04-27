@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserApp\ProfileController;
+use App\Http\Controllers\UserApp\HomeController;
 use App\Http\Controllers\UserApp\LoginController;
 use App\Http\Controllers\UserApp\RewardController;
 use App\Http\Controllers\UserApp\SampahController;
@@ -32,32 +34,23 @@ Route::middleware(['guest'])->group(function () {
 Route::middleware(['auth'])->group(function () {
     // AUTH
     Route::get('/dashboard', [LoginController::class, 'login'])->name('loginDashboard');
-    Route::get('/profile', [LoginController::class, 'profile'])->name('profile');
     Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+    Route::get('/profile', [ProfileController::class, 'show'])->name('showProfile');
+    Route::put('/profile', [ProfileController::class, 'update'])->name('editProfile');
+
     // PAGES
+    Route::get('/settings', [HomeController::class, 'settings'])->name('settings');
     Route::get('/kategori-sampah', [SampahController::class, 'index'])->name('index');
+
+    // Tukar Poin -> Transaction
     Route::get('/tukar-poin', [TukarPoinController::class, 'index'])->name('indexTukarPoin');
+    Route::get('/tukar-poin/reward/{id}', [TukarPoinController::class, 'show'])->name('showReward');
+    Route::get('/tukar-poin/reward/{id}/konfirmasi', [TukarPoinController::class, 'confirm'])->name('confirmReward');
+
+    // Transaction
+    Route::get('/transaction/{id}/detail', [HistoryController::class, 'show'])->name('transactionDetail');
     Route::get('/history/transaction', [HistoryController::class, 'transactionHistory'])->name('transactionHistory');
     Route::get('/history/points', [HistoryController::class, 'pointHistory'])->name('pointHistory');
-});
-
-
-Route::get('/tukar-poin/reward/konfirmasi', function () {
-    return view('user-app/tukar-poin/konfirmasi-tukar-poin');
-});
-
-Route::get('/tukar-poin/success', function () {
-    return view('user-app/tukar-poin/success');
-});
-
-Route::get('/history/tukar-poin', function () {
-    return view('user-app/riwayat-pesanan');
-});
-
-Route::get('/transactions/detail', function () {
-    return view('user-app/detail-transaksi');
-});
-
-Route::get('/user/settings', function () {
-    return view('user-app/pengaturan');
+    Route::get('/history/tukar-poin', [HistoryController::class, 'tukarPointHistory'])->name('tukarPointHistory');
+    route::post('/tukar-poin/reward/{id}', [TukarPoinController::class, 'store'])->name('storeTukarPoin');
 });

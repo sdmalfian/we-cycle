@@ -17,7 +17,7 @@
                 </div>
                 <div class="col text-end">
                     <p class="mb-0">
-                        Dwi Oktaviani Arifin
+                        {{ auth()->user()->username }}
                     </p>
                 </div>
             </div>
@@ -29,8 +29,7 @@
                 </div>
                 <div class="col text-end">
                     <p class="mb-0">
-                        12.00 pm <br>
-                        03 Maret 2023
+                        {{ $time }}
                     </p>
                 </div>
             </div>
@@ -42,7 +41,19 @@
                 </div>
                 <div class="col text-end">
                     <p class="mb-0">
-                        Pot Gemoy
+                        {{ $reward->name }}
+                    </p>
+                </div>
+            </div>
+            <div class="row pt-2 d-flex align-items-center">
+                <div class="col">
+                    <p class="mb-0 fw-bold">
+                        Stok tersedia
+                    </p>
+                </div>
+                <div class="col text-end">
+                    <p class="mb-0">
+                        {{ $reward->stock }}
                     </p>
                 </div>
             </div>
@@ -57,7 +68,7 @@
                 </div>
                 <div class="col text-end">
                     <p class="mb-0 fw-bold">
-                        500 Poin
+                        {{ $reward->price }} Poin
                     </p>
                 </div>
             </div>
@@ -74,7 +85,7 @@
                 </div>
                 <div class="col text-end">
                     <p class="mb-0 fw-bold text-secondary">
-                        900 Poin
+                        {{ $point->total_points }} Poin
                     </p>
                 </div>
             </div>
@@ -85,17 +96,39 @@
                     </p>
                 </div>
                 <div class="col text-end">
-                    <p class="mb-0 fw-bold text-secondary">
-                        400 Poin
-                    </p>
+                    @if ($point_left < $reward->price)
+                        <p class="mb-0 fw-bold text-danger">
+                            {{ ($point->total_points - $reward->price) }} Poin
+                        </p>
+                        @elseif ($reward->stock < 1) <div class="row mt-5 mx-4">
+                            <a class="btn btn-danger disabled rounded-pill fw-bold my-2 px-4 py-2" href="#">
+                                Stok tidak tersedia <i class="bi bi-chevron-right"></i>
+                            </a>
                 </div>
+                @else
+                <p class="mb-0 fw-bold text-secondary">
+                    {{ ($point->total_points - $reward->price) }} Poin
+                </p>
+                @endif
             </div>
-        </section>
+    </div>
+    </section>
+    @if ($point->total_points < $reward->price)
         <div class="row mt-5 mx-4">
-            <a class="btn btn-primary rounded-pill fw-bold my-2 px-4 py-2" href="#">
-                Konfirmasi <i class="bi bi-chevron-right"></i>
+            <a class="btn btn-danger disabled rounded-pill fw-bold my-2 px-4 py-2" href="#">
+                Poin tidak cukup <i class="bi bi-chevron-right"></i>
             </a>
         </div>
-    </div>
+        @else
+        <div div class="row mt-5 mx-4">
+            <form action="{{ url('/tukar-poin/reward/'.$reward->id) }}" method="post">
+                @csrf
+                <button class="btn btn-primary rounded-pill fw-bold my-2 px-4 w-100" href="/tukar-poin/success">
+                    Konfirmasi <i class="bi bi-chevron-right"></i>
+                </button>
+            </form>
+        </div>
+        @endif
+        </div>
 </main>
 @endsection

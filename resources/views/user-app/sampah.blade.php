@@ -18,60 +18,39 @@
 <main style="min-height: calc(100vh - 150px);" class="main-container">
     <div class="container pt-4 pb-5 mb-5">
         <div class="row mx-auto mt-3">
+
+            @foreach ($sampahByCategory as $categoryId => $sampah)
             <h5 class="fw-bold mb-3">
-                SAMPAH PLASTIK
+                {{ $categoryId }}
             </h5>
-            @foreach ($data as $sampah)
-            <div class="col-6 mb-3">
-                <div class="card border border-primary">
-                    <img style="height: 110px;" src="{{ $sampah->image }}" class="card-img-top min-w-100" alt="...">
-                    <div class="card-body text-center">
-                        <h6 class="card-title my-0 fw-bold">
-                            Rp.{{ $sampah->price_per_kg }} /Kg
-                        </h6>
-                        <p class="card-text font-sm mt-0">
-                            {{ $sampah->name }}
-                        </p>
+            <ul>
+                @forelse ($sampah as $item)
+                <div class="col-6 mb-3">
+                    <div class="card border border-primary">
+                        <img style="height: 110px;" src="{{ $item->image }}" class="card-img-top min-w-100" alt="...">
+                        <div class="card-body text-center">
+                            <h6 class="card-title my-0 fw-bold">
+                                Rp.{{ $item->price_per_kg }} /Kg
+                            </h6>
+                            <p class="card-text font-sm mt-0">
+                                {{ $item->name }}
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
+                @empty
+                <div class="col-6 mb-3">
+                    <div class="card border border-primary">
+                        <div class="card-body text-center">
+                            <h6 class="card-title my-0 fw-bold">
+                                Belum ada data pada kategori ini.
+                            </h6>
+                        </div>
+                    </div>
+                </div>
+                @endforelse
+            </ul>
             @endforeach
-        </div>
-        <div class="row mx-1 mt-3">
-            <h5 class="fw-bold mb-3">
-                SAMPAH KACA
-            </h5>
-            <div class="col-6 mb-3">
-                <div class="card border border-primary">
-                    <img src="{{ asset('images/kaos.png') }}" class="card-img-top min-w-100" alt="...">
-                    <div class="card-body text-center">
-                        <h6 class="card-title my-0 fw-bold">
-                            500 Poin
-                        </h6>
-                        <p class="card-text font-sm mt-0">
-                            Lorem ipsum dolor sit amet.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row mx-1 mt-3">
-            <h5 class="fw-bold mb-3">
-                SAMPAH lOGAM
-            </h5>
-            <div class="col-6 mb-3">
-                <div class="card border border-primary">
-                    <img src="{{ asset('images/kaos.png') }}" class="card-img-top min-w-100" alt="...">
-                    <div class="card-body text-center">
-                        <h6 class="card-title my-0 fw-bold">
-                            500 Poin
-                        </h6>
-                        <p class="card-text font-sm mt-0">
-                            Lorem ipsum dolor sit amet.
-                        </p>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
     {{-- NAVIGATION MENU --}}
@@ -96,7 +75,7 @@
                 </a>
             </div>
             <div>
-                <a class=" btn btn-lg border-0 px-1 py-auto" href="#!" role="button">
+                <a class=" btn btn-lg border-0 px-1 py-auto" href="/settings" role="button">
                     <i class="bi bi-gear" style="font-size: 1.5rem; color:#0575E6;"></i>
                     <p class="text-dark fw-bold font-sm p-0 m-0">Pengaturan</p>
                 </a>

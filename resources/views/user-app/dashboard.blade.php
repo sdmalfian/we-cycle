@@ -33,7 +33,7 @@
                     <p class="m-0 font-sm">Profit</p>
                 </div>
                 <div class="col">
-                    <p class="m-0 fw-bold">1000</p>
+                    <p class="m-0 fw-bold">{{ $tukar_poin}}</p>
                     <p class="m-0 font-sm">Reward</p>
                 </div>
             </div>
@@ -137,7 +137,7 @@
                 </a>
             </div>
             <div>
-                <a class=" btn btn-lg border-0 px-1 py-auto" href="#!" role="button">
+                <a class=" btn btn-lg border-0 px-1 py-auto" href="/settings" role="button">
                     <i class="bi bi-gear" style="font-size: 1.5rem; color:#0575E6;"></i>
                     <p class="text-dark fw-bold font-sm p-0 m-0">Pengaturan</p>
                 </a>

@@ -10,7 +10,7 @@
                 <i style="color: #0575E6" class="bi bi-file-earmark-text-fill pe-1"></i>
                 <span>Riwayat Poin</span>
             </a>
-            <a class="btn btn-light text-dark rounded-4 py-2 px-3 shadow fw-bold mt-1" href="#">
+            <a class="btn btn-light text-dark rounded-4 py-2 px-3 shadow fw-bold mt-1" href="/history/tukar-poin">
                 <i style="color: #0575E6" class="bi bi-bag-dash-fill pe-1"></i>
                 <span>Pesanan Saya</span>
             </a>
@@ -26,18 +26,20 @@
                 @if (isset($hiasan) || !empty($hiasan))
                 @forelse ($hiasan as $reward)
                 <div class="swiper-slide me-3 w-50">
-                    <div class="card">
-                        <img style="height: 78px;" src="{{ $reward->image }}" class="card-img-top min-w-100"
-                            alt="{{ $reward->name }}">
-                        <div class="card-body">
-                            <h6 class="card-title my-0 fw-bold">
-                                {{ $reward->price }}
-                            </h6>
-                            <p class="card-text reward-name font-sm mt-0">
-                                {{ $reward->name }}
-                            </p>
+                    <a class="text-dark text-decoration-none" href="{{url("/tukar-poin/reward/{$reward->id}")}}">
+                        <div class="card">
+                            <img style="height: 78px;" src="{{ $reward->image }}" class="card-img-top min-w-100"
+                                alt="{{ $reward->name }}">
+                            <div class="card-body">
+                                <h6 class="card-title my-0 fw-bold">
+                                    {{ $reward->price }}
+                                </h6>
+                                <p class="card-text reward-name font-sm mt-0">
+                                    {{ $reward->name }}
+                                </p>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 @empty
                 <div class="card">
@@ -60,21 +62,23 @@
         <h5 class="fw-bold ps-0 mb-3">Peralatan</h5>
         <div class="swiper mySwiper">
             <div class="swiper-wrapper">
-                @if (isset($peralatan) || !empty($peralatan))
+                @if (isset($peralatan) || !empty($peralatan ))
                 @forelse ($peralatan as $reward)
                 <div class="swiper-slide me-3 w-50">
-                    <div class="card">
-                        <img style="height: 78px;" src="{{ $reward->image }}" class="card-img-top min-w-100"
-                            alt="{{ $reward->name }}">
-                        <div class="card-body">
-                            <h6 class="card-title my-0 fw-bold">
-                                {{ $reward->price }}
-                            </h6>
-                            <p class="card-text reward-name font-sm mt-0">
-                                {{ $reward->name }}
-                            </p>
+                    <a class="text-dark text-decoration-none" href="{{url("/tukar-poin/reward/{$reward->id}")}}">
+                        <div class="card">
+                            <img style="height: 78px;" src="{{ $reward->image }}" class="card-img-top min-w-100"
+                                alt="{{ $reward->name }}">
+                            <div class="card-body">
+                                <h6 class="card-title my-0 fw-bold">
+                                    {{ $reward->price }}
+                                </h6>
+                                <p class="card-text reward-name font-sm mt-0">
+                                    {{ $reward->name }}
+                                </p>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 @empty
                 <div class="card">
@@ -97,21 +101,23 @@
         <h5 class="fw-bold ps-0 mb-3">Perlengkapan</h5>
         <div class="swiper mySwiper">
             <div class="swiper-wrapper">
-                @if (is_array($perlengkapan) || is_object($perlengkapan))
+                @if (isset($perlengkapan) || !empty($perlengkapan ))
                 @forelse ($perlengkapan as $reward)
                 <div class="swiper-slide me-3 w-50">
-                    <div class="card">
-                        <img style="height: 78px;" src="{{ $reward->image }}" class="card-img-top min-w-100"
-                            alt="{{ $reward->name }}">
-                        <div class="card-body">
-                            <h6 class="card-title my-0 fw-bold">
-                                {{ $reward->price }}
-                            </h6>
-                            <p class="card-text reward-name font-sm mt-0">
-                                {{ $reward->name }}
-                            </p>
+                    <a class="text-dark text-decoration-none" href="{{url("/tukar-poin/reward/{$reward->id}")}}">
+                        <div class="card">
+                            <img style="height: 78px;" src="{{ $reward->image }}" class="card-img-top min-w-100"
+                                alt="{{ $reward->name }}">
+                            <div class="card-body">
+                                <h6 class="card-title my-0 fw-bold">
+                                    {{ $reward->price }}
+                                </h6>
+                                <p class="card-text reward-name font-sm mt-0">
+                                    {{ $reward->name }}
+                                </p>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 @empty
                 <div class="card">
@@ -151,7 +157,7 @@
             </a>
         </div>
         <div>
-            <a class=" btn btn-lg border-0 px-1 py-auto" href="#!" role="button">
+            <a class=" btn btn-lg border-0 px-1 py-auto" href="/settings" role="button">
                 <i class="bi bi-gear" style="font-size: 1.5rem; color:#0575E6;"></i>
                 <p class="text-dark fw-bold font-sm p-0 m-0">Pengaturan</p>
             </a>

@@ -68,10 +68,6 @@
                     </div>
                 </form>
             </div>
-            {{-- <div class="terms">
-                <input type="checkbox" id="checkbox" style="float: left; margin-top: 5px">
-                <label for="checkbox">Saya Menyetujui Kebijakan Privasi dan Ketentuan We-Cycle</label>
-            </div> --}}
         </div>
         <div class="loakun">
             <p>Sudah Punya Akun?

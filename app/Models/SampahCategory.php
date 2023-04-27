@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class SampahCategory extends Model
 {
     use HasFactory;
+
+    public function sampah()
+    {
+        return $this->hasMany(Sampah::class);
+    }
 }

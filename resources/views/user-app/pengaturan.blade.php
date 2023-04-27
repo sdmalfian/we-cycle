@@ -12,7 +12,7 @@
             <div class="card border-0 shadow mb-2">
                 <div class="card-body">
                     <div class="row d-flex align-items-center">
-                        <div class="col-7 text-start d-flex">
+                        <div class="col text-start d-flex">
                             <i class="bi bi-pencil-square me-1"></i>
                             <p class="mb-0 fw-bold">
                                 Edit Profil
@@ -24,7 +24,7 @@
             <div class="card border-0 shadow mb-2">
                 <div class="card-body">
                     <div class="row d-flex align-items-center">
-                        <div class="col-7 text-start d-flex">
+                        <div class="col text-start d-flex">
                             <i class="bi bi-shield-lock-fill me-1"></i>
                             <p class="mb-0 fw-bold">
                                 Keamanan Akun
@@ -36,7 +36,7 @@
             <div class="card border-0 shadow mb-2">
                 <div class="card-body">
                     <div class="row d-flex align-items-center">
-                        <div class="col-7 text-start d-flex">
+                        <div class="col text-start d-flex">
                             <i class="bi bi-globe me-1"></i>
                             <p class="mb-0 fw-bold">
                                 Bahasa
@@ -55,7 +55,7 @@
             <div class="card border-0 shadow mb-2">
                 <div class="card-body">
                     <div class="row d-flex align-items-center">
-                        <div class="col-7 text-start d-flex">
+                        <div class="col text-start d-flex">
                             <i class="bi bi-question-circle me-1"></i>
                             <p class="mb-0 fw-bold">
                                 Pusat Bantuan
@@ -74,7 +74,7 @@
             <div class="card border-0 shadow mb-2">
                 <div class="card-body">
                     <div class="row d-flex align-items-center">
-                        <div class="col-7 text-start d-flex">
+                        <div class="col text-start d-flex">
                             <i class="bi bi-pencil-square me-1"></i>
                             <p class="mb-0 fw-bold">
                                 Syarat Dan Ketentuan
@@ -86,7 +86,7 @@
             <div class="card border-0 shadow mb-2">
                 <div class="card-body">
                     <div class="row d-flex align-items-center">
-                        <div class="col-7 text-start d-flex">
+                        <div class="col text-start d-flex">
                             <i class="bi bi-shield-lock-fill me-1"></i>
                             <p class="mb-0 fw-bold">
                                 Kebijakan Privasi
@@ -98,7 +98,7 @@
             <div class="card border-0 shadow mb-2">
                 <div class="card-body">
                     <div class="row d-flex align-items-center">
-                        <div class="col-7 text-start d-flex">
+                        <div class="col text-start d-flex">
                             <i class="bi bi-globe me-1"></i>
                             <p class="mb-0 fw-bold">
                                 Tentang We-Cycle
@@ -110,7 +110,7 @@
         </div>
     </div>
     <div class="row mt-4 mx-4 pb-5 px-3">
-        <a class="btn btn-danger rounded-pill fw-bold my-2 px-4 py-2" href="#">
+        <a class="btn btn-danger rounded-pill fw-bold my-2 px-4 py-2" href="/logout">
             LOGOUT
         </a>
     </div>
