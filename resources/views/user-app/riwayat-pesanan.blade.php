@@ -22,11 +22,25 @@
                             {{ $tukar_poin->created_at }}
                         </p>
                     </div>
+                    @if( $tukar_poin->status == 'Pending')
                     <div class="col-4 text-center">
-                        <p class="mb-0 font-sm fw-bold text-white bg-primary rounded-3">
+                        <p class="mb-0 font-sm fw-bold text-white bg-dark rounded-3">
                             {{ $tukar_poin->status }}
                         </p>
                     </div>
+                    @elseif( $tukar_poin->status == 'On Proses' )
+                    <div class="col-4 text-center">
+                        <p class="mb-0 font-sm fw-bold text-white bg-warning rounded-3">
+                            {{ $tukar_poin->status }}
+                        </p>
+                    </div>
+                    @else
+                    <div class="col-4 text-center">
+                        <p class="mb-0 font-sm fw-bold text-white bg-success rounded-3">
+                            {{ $tukar_poin->status }}
+                        </p>
+                    </div>
+                    @endif
                 </div>
             </div>
         </div>

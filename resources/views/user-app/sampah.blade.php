@@ -18,38 +18,35 @@
 <main style="min-height: calc(100vh - 150px);" class="main-container">
     <div class="container pt-4 pb-5 mb-5">
         <div class="row mx-auto mt-3">
-
             @foreach ($sampahByCategory as $categoryId => $sampah)
             <h5 class="fw-bold mb-3">
                 {{ $categoryId }}
             </h5>
-            <ul>
-                @forelse ($sampah as $item)
-                <div class="col-6 mb-3">
-                    <div class="card border border-primary">
-                        <img style="height: 110px;" src="{{ $item->image }}" class="card-img-top min-w-100" alt="...">
-                        <div class="card-body text-center">
-                            <h6 class="card-title my-0 fw-bold">
-                                Rp.{{ $item->price_per_kg }} /Kg
-                            </h6>
-                            <p class="card-text font-sm mt-0">
-                                {{ $item->name }}
-                            </p>
-                        </div>
+            @forelse ($sampah as $item)
+            <div class="col-6 mb-3">
+                <div class="card border border-primary">
+                    <img style="height: 110px;" src="{{ $item->image }}" class="card-img-top min-w-100" alt="...">
+                    <div class="card-body text-center">
+                        <h6 class="card-title my-0 fw-bold">
+                            Rp.{{ $item->price_per_kg }} /Kg
+                        </h6>
+                        <p class="card-text font-sm mt-0">
+                            {{ $item->name }}
+                        </p>
                     </div>
                 </div>
-                @empty
-                <div class="col-6 mb-3">
-                    <div class="card border border-primary">
-                        <div class="card-body text-center">
-                            <h6 class="card-title my-0 fw-bold">
-                                Belum ada data pada kategori ini.
-                            </h6>
-                        </div>
+            </div>
+            @empty
+            <div class="col-6 mb-3">
+                <div class="card border border-primary">
+                    <div class="card-body text-center">
+                        <h6 class="card-title my-0 fw-bold">
+                            Belum ada data pada kategori ini.
+                        </h6>
                     </div>
                 </div>
-                @endforelse
-            </ul>
+            </div>
+            @endforelse
             @endforeach
         </div>
     </div>
