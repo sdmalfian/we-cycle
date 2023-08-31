@@ -3,7 +3,6 @@
 <br>
 <h1>We-Cycle</h1>
 
-
 ## Table of Contents
 + [About](#about)
 + [Getting Started](#getting_started)
@@ -11,9 +10,12 @@
 + [Preview](#preview)
 
 ## About <a name = "about"></a>
-We-Cycle adalah sebuah project Sistem Informasi Manajemen Bank Sampah berbasis Laravel. Aplikasi ini adalah hasil project dari tugas mata kuliah Manajemen Proyek Sistem Informasi - SI UIN Jakarta angkatan 2020 kelas B.
+![Laravel](https://img.shields.io/badge/Built%20with-Laravel-red)
+Welcome to We-Cycle!
+<br>
+We-Cycle adalah sebuah project Sistem Informasi Manajemen Bank Sampah berbasis Website. Aplikasi ini adalah hasil akhir dari project untuk memenuhi tugas mata kuliah Manajemen Proyek Sistem Informasi - SI UIN Jakarta angkatan 2020 kelas B. Aplikasi ini dibuat dengan Laravel, MySql, dan Library CrudBooster 5.
 
-Tujuan dari pembuatan sistem informasi ini adalah memberikan solusi pengelolaan limbah pada bank sampah RW 16 Cimanggis Depok agar dapat terkelola dengan lebih baik yaitu dengan meningkatkan kualitas layanan yang telah ada secara manual menjadi online dengan dikembangkannya we-cycle.
+Tujuan dari pembuatan sistem informasi ini adalah memberikan solusi pengelolaan limbah pada bank sampah RW 16 Cimanggis Depok agar dapat terkelola dengan lebih baik yaitu dengan meningkatkan kualitas layanan yang telah ada secara manual menjadi online.
 
 ## Getting Started <a name = "getting_started"></a>
 Coming Soon
