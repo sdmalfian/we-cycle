@@ -1,4 +1,8 @@
-We-Cycle
+
+![logo-ijo](https://github.com/sdmalfian/we-cycle/assets/53588747/9ae0ab1d-0637-40a7-8ba9-f27d58cc6df5)
+<br>
+<h1>We-Cycle</h1>
+
 
 ## Table of Contents
 + [About](#about)
@@ -20,6 +24,15 @@ Coming Soon
 ## Project Preview <a name = "preview"></a>
 
 Link Figma : https://www.figma.com/file/lgv3E3qDyCVh4AmVuoxqQn/Kelompok-PMSI?node-id=1-3&t=twFvL6vcIeQAVFVN-0
+
+### Landing Page
+
+![screencapture-127-0-0-1-8000-2023-08-31-13_17_54](https://github.com/sdmalfian/we-cycle/assets/53588747/0846c203-b445-4fe6-a3fd-892413ca0c02)
+
+### Home Page
+
+![screencapture-127-0-0-1-8000-dashboard-2023-08-31-13_18_34](https://github.com/sdmalfian/we-cycle/assets/53588747/2ed6a308-b693-4300-abdf-fdbc8cb5195a)
+
 
 ## Contributor
 
