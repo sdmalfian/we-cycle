@@ -1,6 +1,7 @@
 
 ![logo-ijo](https://github.com/sdmalfian/we-cycle/assets/53588747/9ae0ab1d-0637-40a7-8ba9-f27d58cc6df5)
 <br>
+![Laravel](https://img.shields.io/badge/Built%20with-Laravel-red)
 <h1>We-Cycle</h1>
 
 ## Table of Contents
@@ -10,7 +11,6 @@
 + [Preview](#preview)
 
 ## About <a name = "about"></a>
-![Laravel](https://img.shields.io/badge/Built%20with-Laravel-red)
 Welcome to We-Cycle!
 <br>
 We-Cycle adalah sebuah project Sistem Informasi Manajemen Bank Sampah berbasis Website. Aplikasi ini adalah hasil akhir dari project untuk memenuhi tugas mata kuliah Manajemen Proyek Sistem Informasi - SI UIN Jakarta angkatan 2020 kelas B. Aplikasi ini dibuat dengan Laravel, MySql, dan Library CrudBooster 5.
