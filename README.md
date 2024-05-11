@@ -81,6 +81,10 @@ Berikut adalah langkah-langkah untuk menginstall aplikasi ini:
  12. Jalankan perintah `php artisan serve`
  13. Buka link http://localhost:8000/. Jika tampilan web sudah terlihat maka anda sudah berhasil menginstall aplikasi we-cycle!
 
+### PANDUAN PENGGUNAAN:
+Panduan Penggunaan aplikasi we-cycle dapat dilihat [disini](https://github.com/sdmalfian/we-cycle/blob/main/User-Guide.md)
+
+
 ## Project Preview <a name = "preview"></a>
 
 Link Figma : https://www.figma.com/file/lgv3E3qDyCVh4AmVuoxqQn/Kelompok-PMSI?node-id=1-3&t=twFvL6vcIeQAVFVN-0
